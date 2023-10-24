@@ -1,0 +1,80 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "backUpPath&Sequence_1",
+        "NewExceptionHandlerWorkflow&Sequence_1",
+        "OldExceptionHandlerWorkflow&Sequence_1",
+        "aryXamlFile&Sequence_2",
+        "ProjectJson&Sequence_3",
+        "ProjectText&Sequence_3",
+        "ProjectPath&Sequence_3",
+        "GlobalHanderMailExcel&Sequence_4"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "プロジェクトフォルダ_フルパス"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "GlobalHandlerMail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "ErrorTemplate&Flowchart_2",
+        "SkipIterationFlag&Flowchart_2",
+        "CustomInputContentPath&Flowchart_2",
+        "UserAction&Flowchart_2",
+        "SkipIterationFlagText&Flowchart_2",
+        "ErrorTemplateBackup&Flowchart_2",
+        "cEmptyString&Flowchart_2",
+        "Config&Flowchart_2",
+        "MailConfigPath&Flowchart_2",
+        "MailConfigSheet&Flowchart_2",
+        "dt_MailConfig&Sequence_108",
+        "LocalizationData&Sequence_109",
+        "UICulture&Sequence_109",
+        "ActionType&Sequence_110",
+        "placeholderActionType&Sequence_110",
+        "ActivityName&Sequence_110",
+        "ActivityType&Sequence_110",
+        "ProblemDescription&Sequence_110",
+        "placeholderActivityType&Sequence_110",
+        "ProblemDescriptionPlaceholder&Sequence_110",
+        "activityEncodedIdPlaceHolder&Sequence_110",
+        "activityEncodedId&Sequence_110",
+        "placeholderActivityName&Sequence_110",
+        "FoundRepetitiveActivity&Sequence_110",
+        "placeholderSkipIteration&Sequence_110",
+        "cDisplayNone&Sequence_110",
+        "ScreenshotPath&Sequence_121"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "errorInfo",
+        "result"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "シーケンス.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "aaa&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
