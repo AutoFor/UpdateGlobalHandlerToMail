@@ -14,7 +14,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850.4,568.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,602.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GlobalHandlerX</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -169,11 +169,7 @@
               </Variable.Default>
             </Variable>
             <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String)]" Name="Config" />
-            <Variable x:TypeArguments="x:String" Name="MailConfigPath">
-              <Variable.Default>
-                <Literal x:TypeArguments="x:String">GlobalHandlerMailConfig.xlsx</Literal>
-              </Variable.Default>
-            </Variable>
+            <Variable x:TypeArguments="x:String" Default="GlobalHandlerMailConfig.xlsx" Name="MailConfigPath" />
             <Variable x:TypeArguments="x:String" Default="エラーメール通知" Name="MailConfigSheet" />
           </Flowchart.Variables>
           <sap:WorkflowViewStateService.ViewState>
@@ -877,7 +873,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">1370,260.9 1370,336.4</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap2010:Annotation.AnnotationText="プロジェクト全体で使用される設定辞書を初期化、入力、出力します。" DisplayName="Initialize All Settings" sap:VirtualizedContainerService.HintSize="563.2,864.8" sap2010:WorkflowViewState.IdRef="Sequence_108">
+            <Sequence sap2010:Annotation.AnnotationText="プロジェクト全体で使用される設定辞書を初期化、入力、出力します。" DisplayName="Initialize All Settings" sap:VirtualizedContainerService.HintSize="200,143.2" sap2010:WorkflowViewState.IdRef="Sequence_108">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="dt_MailConfig" />
               </Sequence.Variables>
@@ -1000,7 +996,7 @@
                             <av:PointCollection x:Key="ConnectorLocation">2100,1541.6000000000001 2100,1610 1040,1610</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="メール送信" sap:VirtualizedContainerService.HintSize="668.8,1494.4" sap2010:WorkflowViewState.IdRef="Sequence_121">
+                        <Sequence DisplayName="メール送信" sap:VirtualizedContainerService.HintSize="668.8,1987.2" sap2010:WorkflowViewState.IdRef="Sequence_121">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Default="screenshot.png" Name="ScreenshotPath" />
                           </Sequence.Variables>
@@ -1048,53 +1044,53 @@
                               </scg:List>
                             </ui:MultipleAssign.AssignOperations>
                           </ui:MultipleAssign>
-                          <umab:OutlookApplicationCard Account="{x:Null}" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="デスクトップ版 Outlook アプリを使用" sap:VirtualizedContainerService.HintSize="606.4,1056.8" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_3">
+                          <If Condition="[Config(&quot;スクリーンショット&quot;).Contains(&quot;添付する&quot;)]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="606.4,505.6" sap2010:WorkflowViewState.IdRef="If_27">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376.8,322.4" sap2010:WorkflowViewState.IdRef="Sequence_118">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NTakeScreenshot DisplayName="スクリーンショットを作成" FileName="[Config(&quot;スクリーンショットパス&quot;)]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="333.6,232.8" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_4" Version="V3" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_119">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_142">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Config("スクリーンショットパス")]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <umab:OutlookApplicationCard Account="{x:Null}" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="デスクトップ版 Outlook アプリを使用" sap:VirtualizedContainerService.HintSize="606.4,1004" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_3">
                             <umab:OutlookApplicationCard.Body>
                               <ActivityAction x:TypeArguments="um:IMailQuickHandle">
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Outlook" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="実行" sap:VirtualizedContainerService.HintSize="572.8,875.2" sap2010:WorkflowViewState.IdRef="Sequence_120">
+                                <Sequence DisplayName="実行" sap:VirtualizedContainerService.HintSize="572.8,782.4" sap2010:WorkflowViewState.IdRef="Sequence_120">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <If Condition="[Config(&quot;スクリーンショット&quot;).Contains(&quot;添付する&quot;)]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="510.4,52.8" sap2010:WorkflowViewState.IdRef="If_27">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <If.Then>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="376.8,329.6" sap2010:WorkflowViewState.IdRef="Sequence_118">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <uix:NTakeScreenshot DisplayName="スクリーンショットを作成" FileName="[Config(&quot;スクリーンショットパス&quot;)]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="333.6,240" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_3" InScope="[Outlook]" ScopeIdentifier="Outlook" Version="V3" />
-                                      </Sequence>
-                                    </If.Then>
-                                    <If.Else>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_119">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <Assign DisplayName="代入" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_142">
-                                          <Assign.To>
-                                            <OutArgument x:TypeArguments="x:String">[Config("スクリーンショットパス")]</OutArgument>
-                                          </Assign.To>
-                                          <Assign.Value>
-                                            <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
-                                          </Assign.Value>
-                                        </Assign>
-                                      </Sequence>
-                                    </If.Else>
-                                  </If>
                                   <If Condition="[Config(&quot;メール下書き保存&quot;).Contains(&quot;下書き保存しない&quot;)]" DisplayName="条件分岐 (if)" sap:VirtualizedContainerService.HintSize="510.4,670.4" sap2010:WorkflowViewState.IdRef="If_28">
                                     <If.Then>
                                       <Sequence sap:VirtualizedContainerService.HintSize="476.8,487.2" sap2010:WorkflowViewState.IdRef="Sequence_123">
@@ -1200,7 +1196,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,143.2" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[exception.Message]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[exception.Message]" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
