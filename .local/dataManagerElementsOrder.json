@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "ProjectName&SequenceX_1",
         "backUpPath&Sequence_1",
         "NewExceptionHandlerWorkflow&Sequence_1",
         "OldExceptionHandlerWorkflow&Sequence_1",
